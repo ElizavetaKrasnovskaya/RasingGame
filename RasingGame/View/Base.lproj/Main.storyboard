@@ -20,9 +20,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rasing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta6-bt-Bln">
-                                <rect key="frame" x="121.00000000000001" y="296.33333333333331" width="148.33333333333337" height="51.333333333333314"/>
-                                <fontDescription key="fontDescription" name="DriftWood" family="Drift Wood" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rasing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta6-bt-Bln" customClass="LogoLabelView" customModule="RasingGame" customModuleProvider="target">
+                                <rect key="frame" x="102.33333333333333" y="290" width="185.33333333333337" height="64.333333333333314"/>
+                                <fontDescription key="fontDescription" name="DriftWood" family="Drift Wood" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -36,19 +36,35 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fam-kP-Dit"/>
                     <connections>
-                        <outlet property="lblRasing" destination="ta6-bt-Bln" id="Vtk-D1-CMo"/>
+                        <outlet property="lblRasing" destination="ta6-bt-Bln" id="4wO-Rp-l3h"/>
+                        <segue destination="ZKJ-Tz-dkp" kind="show" id="qL5-aR-8Dl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="203" y="-24"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="1s3-Gw-NPW">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="ZKJ-Tz-dkp" customClass="MenuViewController" customModule="RasingGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cmv-oO-Oao">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lff-U1-fDX"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xKV-Sm-dSz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTg-oH-7XA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1178" y="-24"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="1TL-Qo-7Hv">
             <objects>
-                <navigationController id="OwL-AX-U5u" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="OwL-AX-U5u" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="31H-ph-lqe">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

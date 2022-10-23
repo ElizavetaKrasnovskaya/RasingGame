@@ -16,8 +16,13 @@
 		843E266D2904639A000009DB /* carGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 843E266C2904639A000009DB /* carGif.gif */; };
 		843E267129046457000009DB /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E267029046457000009DB /* GifView.swift */; };
 		843E267829047968000009DB /* drift.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843E267729047965000009DB /* drift.ttf */; };
-		8494F6DE2905478A0086E3AD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494F6DC2905478A0086E3AD /* MenuViewController.swift */; };
-		8494F6DF2905478A0086E3AD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8494F6DD2905478A0086E3AD /* MenuViewController.xib */; };
+		8494F6E1290552710086E3AD /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494F6E0290552710086E3AD /* ShadowView.swift */; };
+		8494F6E3290553E90086E3AD /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494F6E2290553E90086E3AD /* CustomViews.swift */; };
+		8494F6E52905594F0086E3AD /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494F6E42905594F0086E3AD /* MenuItemView.swift */; };
+		8494F6E72905649B0086E3AD /* BackgroundDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494F6E62905649B0086E3AD /* BackgroundDirection.swift */; };
+		8494F6ED290573DD0086E3AD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494F6EC290573DD0086E3AD /* MenuViewController.swift */; };
+		8494F6F0290575DA0086E3AD /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494F6EE290575DA0086E3AD /* CheckViewController.swift */; };
+		8494F6F1290575DA0086E3AD /* CheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8494F6EF290575DA0086E3AD /* CheckViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +37,13 @@
 		843E266C2904639A000009DB /* carGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carGif.gif; sourceTree = "<group>"; };
 		843E267029046457000009DB /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
 		843E267729047965000009DB /* drift.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drift.ttf; sourceTree = "<group>"; };
-		8494F6DC2905478A0086E3AD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		8494F6DD2905478A0086E3AD /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MenuViewController.xib; path = ../Controller/MenuViewController.xib; sourceTree = "<group>"; };
+		8494F6E0290552710086E3AD /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		8494F6E2290553E90086E3AD /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		8494F6E42905594F0086E3AD /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		8494F6E62905649B0086E3AD /* BackgroundDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDirection.swift; sourceTree = "<group>"; };
+		8494F6EC290573DD0086E3AD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		8494F6EE290575DA0086E3AD /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
+		8494F6EF290575DA0086E3AD /* CheckViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				843E267029046457000009DB /* GifView.swift */,
+				8494F6E0290552710086E3AD /* ShadowView.swift */,
+				8494F6E2290553E90086E3AD /* CustomViews.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -89,7 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				843E265C29045FD2000009DB /* SplashViewController.swift */,
-				8494F6DC2905478A0086E3AD /* MenuViewController.swift */,
+				8494F6EC290573DD0086E3AD /* MenuViewController.swift */,
+				8494F6EE290575DA0086E3AD /* CheckViewController.swift */,
+				8494F6EF290575DA0086E3AD /* CheckViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -97,8 +111,8 @@
 		843E267529046EB5000009DB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8494F6DD2905478A0086E3AD /* MenuViewController.xib */,
 				843E265E29045FD2000009DB /* Main.storyboard */,
+				8494F6E42905594F0086E3AD /* MenuItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,6 +120,7 @@
 		843E267629046EBC000009DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8494F6E62905649B0086E3AD /* BackgroundDirection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,9 +204,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				843E266529045FD3000009DB /* LaunchScreen.storyboard in Resources */,
-				8494F6DF2905478A0086E3AD /* MenuViewController.xib in Resources */,
 				843E267829047968000009DB /* drift.ttf in Resources */,
 				843E266229045FD3000009DB /* Assets.xcassets in Resources */,
+				8494F6F1290575DA0086E3AD /* CheckViewController.xib in Resources */,
 				843E266D2904639A000009DB /* carGif.gif in Resources */,
 				843E266029045FD2000009DB /* Main.storyboard in Resources */,
 			);
@@ -204,8 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8494F6E1290552710086E3AD /* ShadowView.swift in Sources */,
 				843E265D29045FD2000009DB /* SplashViewController.swift in Sources */,
-				8494F6DE2905478A0086E3AD /* MenuViewController.swift in Sources */,
+				8494F6E52905594F0086E3AD /* MenuItemView.swift in Sources */,
+				8494F6F0290575DA0086E3AD /* CheckViewController.swift in Sources */,
+				8494F6E3290553E90086E3AD /* CustomViews.swift in Sources */,
+				8494F6ED290573DD0086E3AD /* MenuViewController.swift in Sources */,
+				8494F6E72905649B0086E3AD /* BackgroundDirection.swift in Sources */,
 				843E267129046457000009DB /* GifView.swift in Sources */,
 				843E265929045FD2000009DB /* AppDelegate.swift in Sources */,
 				843E265B29045FD2000009DB /* SceneDelegate.swift in Sources */,
