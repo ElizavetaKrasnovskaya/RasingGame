@@ -13,6 +13,11 @@
 		843E266029045FD2000009DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843E265E29045FD2000009DB /* Main.storyboard */; };
 		843E266229045FD3000009DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843E266129045FD3000009DB /* Assets.xcassets */; };
 		843E266529045FD3000009DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843E266329045FD3000009DB /* LaunchScreen.storyboard */; };
+		843E266D2904639A000009DB /* carGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 843E266C2904639A000009DB /* carGif.gif */; };
+		843E267129046457000009DB /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E267029046457000009DB /* GifView.swift */; };
+		843E267829047968000009DB /* drift.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843E267729047965000009DB /* drift.ttf */; };
+		8494F6DE2905478A0086E3AD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494F6DC2905478A0086E3AD /* MenuViewController.swift */; };
+		8494F6DF2905478A0086E3AD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8494F6DD2905478A0086E3AD /* MenuViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		843E266129045FD3000009DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843E266429045FD3000009DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843E266629045FD3000009DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		843E266C2904639A000009DB /* carGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = carGif.gif; sourceTree = "<group>"; };
+		843E267029046457000009DB /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
+		843E267729047965000009DB /* drift.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drift.ttf; sourceTree = "<group>"; };
+		8494F6DC2905478A0086E3AD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		8494F6DD2905478A0086E3AD /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MenuViewController.xib; path = ../Controller/MenuViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,68 @@
 		843E265729045FD2000009DB /* RasingGame */ = {
 			isa = PBXGroup;
 			children = (
-				843E265829045FD2000009DB /* AppDelegate.swift */,
-				843E265A29045FD2000009DB /* SceneDelegate.swift */,
-				843E265C29045FD2000009DB /* SplashViewController.swift */,
-				843E265E29045FD2000009DB /* Main.storyboard */,
-				843E266129045FD3000009DB /* Assets.xcassets */,
-				843E266329045FD3000009DB /* LaunchScreen.storyboard */,
 				843E266629045FD3000009DB /* Info.plist */,
+				843E2679290546A3000009DB /* App */,
+				843E267629046EBC000009DB /* Model */,
+				843E267529046EB5000009DB /* View */,
+				843E267429046E9C000009DB /* Controller */,
+				843E266F2904643B000009DB /* Utils */,
+				843E267A290546BC000009DB /* Resources */,
 			);
 			path = RasingGame;
+			sourceTree = "<group>";
+		};
+		843E266F2904643B000009DB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				843E267029046457000009DB /* GifView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		843E267429046E9C000009DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				843E265C29045FD2000009DB /* SplashViewController.swift */,
+				8494F6DC2905478A0086E3AD /* MenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		843E267529046EB5000009DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8494F6DD2905478A0086E3AD /* MenuViewController.xib */,
+				843E265E29045FD2000009DB /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		843E267629046EBC000009DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		843E2679290546A3000009DB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				843E265829045FD2000009DB /* AppDelegate.swift */,
+				843E265A29045FD2000009DB /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		843E267A290546BC000009DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				843E266129045FD3000009DB /* Assets.xcassets */,
+				843E266C2904639A000009DB /* carGif.gif */,
+				843E266329045FD3000009DB /* LaunchScreen.storyboard */,
+				843E267729047965000009DB /* drift.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +189,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				843E266529045FD3000009DB /* LaunchScreen.storyboard in Resources */,
+				8494F6DF2905478A0086E3AD /* MenuViewController.xib in Resources */,
+				843E267829047968000009DB /* drift.ttf in Resources */,
 				843E266229045FD3000009DB /* Assets.xcassets in Resources */,
+				843E266D2904639A000009DB /* carGif.gif in Resources */,
 				843E266029045FD2000009DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +205,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				843E265D29045FD2000009DB /* SplashViewController.swift in Sources */,
+				8494F6DE2905478A0086E3AD /* MenuViewController.swift in Sources */,
+				843E267129046457000009DB /* GifView.swift in Sources */,
 				843E265929045FD2000009DB /* AppDelegate.swift in Sources */,
 				843E265B29045FD2000009DB /* SceneDelegate.swift in Sources */,
 			);
