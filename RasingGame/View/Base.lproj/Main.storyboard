@@ -37,7 +37,6 @@
                     <navigationItem key="navigationItem" id="Fam-kP-Dit"/>
                     <connections>
                         <outlet property="lblRasing" destination="ta6-bt-Bln" id="4wO-Rp-l3h"/>
-                        <segue destination="ZKJ-Tz-dkp" kind="show" id="qL5-aR-8Dl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -59,6 +58,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTg-oH-7XA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1178" y="-24"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="wrv-NG-raE">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="XM1-TP-wr3" customClass="GameViewController" customModule="RasingGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zi1-qY-ody">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl8-Il-DNc">
+                                <rect key="frame" x="180" y="236.66666666666666" width="30.333333333333343" height="70.666666666666657"/>
+                                <fontDescription key="fontDescription" name="DriftWood" family="Drift Wood" pointSize="55"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pDN-gJ-V16"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dl8-Il-DNc" firstAttribute="centerY" secondItem="Zi1-qY-ody" secondAttribute="centerY" constant="-150" id="DUH-qA-gin"/>
+                            <constraint firstItem="dl8-Il-DNc" firstAttribute="centerX" secondItem="Zi1-qY-ody" secondAttribute="centerX" id="PPT-yr-kV0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="dl8-Il-DNc" id="sQk-C3-8or"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHe-KR-v1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2166" y="-24"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1TL-Qo-7Hv">

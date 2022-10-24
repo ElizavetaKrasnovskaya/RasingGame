@@ -1,12 +1,14 @@
 import UIKit
 
-class MenuViewController: UIViewController {
+final class MenuViewController: UIViewController {
 
+    // MARK: - Private properties
     private let width: CGFloat = 250
     private let height: CGFloat = 70
     private let padding: CGFloat = 16
     private var isFirstLoad = true
         
+    // MARK: - Override methods
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         if isFirstLoad {
@@ -14,6 +16,7 @@ class MenuViewController: UIViewController {
         }
     }
     
+    // MARK: - Private methods
     private func initView() {
         setupNewGameView()
         setupScoreView()
@@ -27,6 +30,7 @@ class MenuViewController: UIViewController {
         let labelStart = UILabel()
         labelStart.frame = CGRect(x: padding, y: 0, width: width, height: height)
         labelStart.textAlignment = .left
+        labelStart.isUserInteractionEnabled = true
         setupFont(label: labelStart, text: "Start game")
         
         view.addSubview(startNewGame)
@@ -34,6 +38,12 @@ class MenuViewController: UIViewController {
 
         UIView.animate(withDuration: 1, delay: 0, animations: {
             startNewGame.frame.origin.x += self.width
+        }, completion: { (isFinished: Bool) in
+            let gesture = UITapGestureRecognizer(
+                target: self,
+                action: #selector(self.navigateToGame)
+            )
+            labelStart.addGestureRecognizer(gesture)
         })
     }
     
@@ -73,8 +83,12 @@ class MenuViewController: UIViewController {
     }
     
     private func setupFont(label: UILabel, text: String) {
+        
+        guard let font: UIFont = UIFont(name: "Drift Wood", size: 20.0)
+        else { return }
+        
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont(name: "Drift Wood", size: 20.0),
+            .font: font,
             .foregroundColor: UIColor.black,
         ]
         let attributedString = NSAttributedString(string: text, attributes: attributes)
@@ -82,6 +96,12 @@ class MenuViewController: UIViewController {
     }
     
     @objc private func navigateToGame() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        guard let gameViewController = storyboard.instantiateViewController(identifier: "GameViewController") as? GameViewController
+        else { return }
+        
+        view.window?.rootViewController = gameViewController
+        view.window?.makeKeyAndVisible()
     }
 }

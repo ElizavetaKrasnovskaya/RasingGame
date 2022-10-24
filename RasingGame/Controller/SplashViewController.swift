@@ -1,13 +1,16 @@
 import UIKit
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
     
+    // MARK: - Private properties
     private var isFirstLoad = true
     private let carHeight: CGFloat = 100
     private let carWidth: CGFloat = 150
     
+    // MARK: - IBOutlets
     @IBOutlet private weak var lblRasing: LogoLabelView!
     
+    // MARK: - Override methods
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         if isFirstLoad {
@@ -16,6 +19,7 @@ class SplashViewController: UIViewController {
         }
     }
     
+    // MARK: - Private methods
     private func initView() {
         setupGif()
         setupLogoLabel()
@@ -45,19 +49,19 @@ class SplashViewController: UIViewController {
     
     private func navigateToMainScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
+        
         guard let menuViewController = storyboard.instantiateViewController(identifier: "MenuViewController") as? MenuViewController
         else { return }
         
         view.window?.rootViewController = menuViewController
         view.window?.makeKeyAndVisible()
         
-//        let menuViewController = UIViewController(nibName: "CheckViewController", bundle: nil)
-//        self.navigationController?.pushViewController(menuViewController, animated: true)
-//
-//
-//        view.window?.rootViewController = menuViewController
-//        view.window?.makeKeyAndVisible()
+        //        let menuViewController = UIViewController(nibName: "CheckViewController", bundle: nil)
+        //        self.navigationController?.pushViewController(menuViewController, animated: true)
+        //
+        //
+        //        view.window?.rootViewController = menuViewController
+        //        view.window?.makeKeyAndVisible()
     }
 }
 
