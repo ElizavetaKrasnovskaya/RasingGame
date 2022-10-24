@@ -17,7 +17,7 @@ extension BlurView {
         addSubview(blurEffectView)
         
         UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
-            blurEffectView.alpha = 0.7
+            blurEffectView.alpha = 0.16
         }, completion: nil)
     }
     

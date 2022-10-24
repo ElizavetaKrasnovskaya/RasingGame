@@ -7,7 +7,9 @@ final class MenuViewController: UIViewController {
     private let height: CGFloat = 70
     private let padding: CGFloat = 16
     private var isFirstLoad = true
-        
+    
+    @IBOutlet weak var background: BlurImageView!
+    
     // MARK: - Override methods
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -18,6 +20,7 @@ final class MenuViewController: UIViewController {
     
     // MARK: - Private methods
     private func initView() {
+        background.blur()
         setupNewGameView()
         setupScoreView()
         setupCarShopView()
