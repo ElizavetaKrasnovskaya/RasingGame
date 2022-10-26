@@ -9,58 +9,63 @@ final class GameViewController: UIViewController {
     private let lineWidth: CGFloat = 2
     private let lineHeight: CGFloat = 30
     private let barrierSize: CGFloat = 100
+    private let coinSize: CGFloat = 50
     private let uiImage = UIImage(named: "barrier")
     
     private var defaultSpacing: CGFloat = 0
     private var isFirstLoad = true
     private var timerCount: Int = 0
     private var timer = Timer()
-    private var road = [CAShapeLayer]()
+    private var roads = [CAShapeLayer]()
     private var barriers = [UIImageView]()
+    private var coins = [UIImageView]()
+    private var score: Int = 0
     private var carLocation: Location = .center {
         willSet (newLocation) {
             layoutCar(at: newLocation)
         }
     }
-
-    @IBOutlet weak var timerLabel: UILabel!
-
+    
+    // MARK: - @IBOutlets
+    @IBOutlet private weak var timerLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel!
+    @IBOutlet weak var coinImageView: UIImageView!
+    
     // MARK: - Override methods
     override func viewWillLayoutSubviews() {
         if isFirstLoad {
             initView()
+            isFirstLoad = false
         }
     }
     
     // MARK: - Private methods
     private func initView() {
-        timerCount = 3
-        defaultSpacing = (view.frame.width - carWidth * 3) / 4
-        
+        setupTimer()
         setupCar()
         setupTrack()
         view.addSubview(carView)
         layoutCar(at: .center)
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
-        
-        isFirstLoad = false
     }
     
-    @objc private func updateTimerLabel() {
-        if timerCount > 0 {
-            timerCount -= 1
-            timerLabel.text = String(timerCount)
-        } else {
-            timer.invalidate()
-            for el in road {
-                animateRoad(view: el)
-            }
-            timerLabel.alpha = 0
-            createBarrier(xCoordinate: view.frame.width / 6 - barrierSize / 2, delay: 2)
-            createBarrier(xCoordinate: view.frame.width / 2 - barrierSize / 2, delay: 10)
-            createBarrier(xCoordinate: view.frame.width * 5 / 6 - barrierSize / 2, delay: 7)
-        }
+    private func setupTimer() {
+        timerCount = 3
+        timerLabel.alpha = 1
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+    }
+    
+    private func setupCar() {
+        defaultSpacing = (view.frame.width - carWidth * 3) / 4
+        
+        carView.frame = CGRect(
+            x: getOriginX(for: .center),
+            y: view.frame.size.height - carHeight * 2,
+            width: carWidth,
+            height: carHeight
+        )
+        
+        addSwipeGesture(to: view, direction: .left)
+        addSwipeGesture(to: view, direction: .right)
     }
     
     private func setupTrack() {
@@ -107,7 +112,7 @@ final class GameViewController: UIViewController {
         path.addLines(between: [p0, p1])
         shapeLayer.path = path
         view.layer.addSublayer(shapeLayer)
-        road.append(shapeLayer)
+        roads.append(shapeLayer)
     }
     
     private func animateRoad(view: CAShapeLayer) {
@@ -148,44 +153,98 @@ final class GameViewController: UIViewController {
         })
         barriers.append(imageView)
         barriers.append(imageViewSecond)
-        intersects(imageView, imageViewSecond)
+        intersectsBarrier(imageView, imageViewSecond)
     }
     
-    private func intersects(
+    private func createCoin(xCoordinate: CGFloat, delay: Double) {
+        let imageView = UIImageView(image: UIImage(named: "coin"))
+        view.addSubview(imageView)
+        imageView.frame = CGRect(x: xCoordinate, y: -100, width: coinSize, height: coinSize)
+        
+        let spacing = Double(view.frame.height)
+        let v = 150.0
+        
+        let s1 = spacing + 2000
+        
+        let t1 = s1/v
+        
+        UIView.animate(withDuration: t1, delay: delay, options: [ .curveLinear, .repeat], animations: {
+            imageView.frame.origin.y += s1
+        })
+        
+        coins.append(imageView)
+        intersectsCoin(imageView)
+    }
+    
+    private func intersectsCoin(_ coinView: UIImageView) {
+        if checkIntersect(carView, coinView) {
+            let xPosition: CGFloat = coinView.layer.presentation()?.frame.origin.x ?? 0
+            let yPosition: CGFloat = coinView.layer.presentation()?.frame.origin.y ?? 0
+            coinView.frame = CGRect(x: xPosition, y: yPosition, width: coinSize, height: coinSize)
+            coinView.layer.removeAllAnimations()
+            UIView.animate(withDuration: 2, animations: {
+                coinView.frame.origin.x = self.coinImageView.frame.origin.x - 7
+                coinView.frame.origin.y = self.coinImageView.frame.origin.y - 7
+                coinView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            }, completion: { finished in
+                coinView.removeFromSuperview()
+                self.createCoin(xCoordinate: xPosition, delay: 12)
+            })
+            score += 1
+            scoreLabel.text = String(score)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.intersectsCoin(coinView)
+        }
+    }
+    
+    private func intersectsBarrier(
         _ firstBarrier: UIImageView,
         _ secondBarrier: UIImageView
     ) {
         if checkIntersect(carView, firstBarrier) ||
-        checkIntersect(carView, secondBarrier){
-            for barrier in barriers {
-                barrier.layer.removeAllAnimations()
-            }
-            showAlert()
+            checkIntersect(carView, secondBarrier) {
+            
+            removeAnimation()
+            score = 0
+            scoreLabel.text = String(score)
+            
+            showAlert(
+                title: "Game is over",
+                message: "You can start a new game",
+                actions: [
+                    UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
+                        self.initView()
+                    }), UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in
+                        self.navigateBack()
+                    })
+                ]
+            )
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.intersects(firstBarrier, secondBarrier)
+            self.intersectsBarrier(firstBarrier, secondBarrier)
+        }
+    }
+    
+    private func removeAnimation() {
+        for barrier in barriers {
+            barrier.layer.removeAllAnimations()
+        }
+        for road in roads {
+            road.removeAllAnimations()
+        }
+        for coin in coins {
+            coin.layer.removeAllAnimations()
         }
     }
     
     private func checkIntersect(_ first: UIView, _ second: UIView) -> Bool {
-        
         guard let firstFrame = first.layer.presentation()?.frame,
               let secondFrame = second.layer.presentation()?.frame else { return false }
         
         return firstFrame.intersects(secondFrame)
-    }
-    
-    private func setupCar() {
-        carView.frame = CGRect(
-            x: getOriginX(for: .center),
-            y: view.frame.size.height - carHeight * 2,
-            width: carWidth,
-            height: carHeight
-        )
-        
-        addSwipeGesture(to: view, direction: .left)
-        addSwipeGesture(to: view, direction: .right)
     }
     
     private func layoutCar(at location: Location) {
@@ -224,17 +283,27 @@ final class GameViewController: UIViewController {
         }
     }
     
-    private func showAlert() {
-        let alert = UIAlertController(title: "Game is over", message: "You can start a new game", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    private func navigateBack() {
+        navigationController?.popViewController(animated: false)
+    }
+    
+    @objc private func updateTimerLabel() {
+        if timerCount > 0 {
+            timerCount -= 1
+            timerLabel.text = String(timerCount)
+        } else {
+            timer.invalidate()
+            for el in roads {
+                animateRoad(view: el)
+            }
+            timerLabel.alpha = 0
+            createBarrier(xCoordinate: view.frame.width / 6 - barrierSize / 2, delay: 2)
+            createBarrier(xCoordinate: view.frame.width / 2 - barrierSize / 2, delay: 10)
+            createBarrier(xCoordinate: view.frame.width * 5 / 6 - barrierSize / 2, delay: 7)
             
-            guard let menuViewController = storyboard.instantiateViewController(identifier: "MenuViewController") as? MenuViewController
-            else { return }
-            
-            self.view.window?.rootViewController = menuViewController
-            self.view.window?.makeKeyAndVisible()
-        }))
-        self.present(alert, animated: true)
+            createCoin(xCoordinate: view.frame.width / 6 - coinSize / 2, delay: 4)
+            createCoin(xCoordinate: view.frame.width / 2 - coinSize / 2, delay: 15)
+            createCoin(xCoordinate: view.frame.width * 5 / 6 - coinSize / 2, delay: 20)
+        }
     }
 }

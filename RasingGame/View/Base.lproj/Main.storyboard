@@ -82,20 +82,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl8-Il-DNc">
-                                <rect key="frame" x="180" y="236.66666666666666" width="30.333333333333343" height="70.666666666666657"/>
-                                <fontDescription key="fontDescription" name="DriftWood" family="Drift Wood" pointSize="55"/>
+                                <rect key="frame" x="181" y="236.33333333333334" width="28" height="71.333333333333343"/>
+                                <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykf-Rk-Trk">
+                                <rect key="frame" x="339" y="67" width="21" height="39.333333333333343"/>
+                                <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin" translatesAutoresizingMaskIntoConstraints="NO" id="DSK-wK-1tp">
+                                <rect key="frame" x="304" y="67" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="KhI-La-U3c"/>
+                                    <constraint firstAttribute="width" constant="25" id="SpT-J1-iXa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pDN-gJ-V16"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DSK-wK-1tp" firstAttribute="top" secondItem="pDN-gJ-V16" secondAttribute="top" constant="20" id="0ti-P9-36F"/>
                             <constraint firstItem="dl8-Il-DNc" firstAttribute="centerY" secondItem="Zi1-qY-ody" secondAttribute="centerY" constant="-150" id="DUH-qA-gin"/>
+                            <constraint firstItem="ykf-Rk-Trk" firstAttribute="top" secondItem="pDN-gJ-V16" secondAttribute="top" constant="20" id="Mym-cy-Qff"/>
+                            <constraint firstItem="ykf-Rk-Trk" firstAttribute="leading" secondItem="DSK-wK-1tp" secondAttribute="trailing" constant="10" id="OU6-9W-DYv"/>
                             <constraint firstItem="dl8-Il-DNc" firstAttribute="centerX" secondItem="Zi1-qY-ody" secondAttribute="centerX" id="PPT-yr-kV0"/>
+                            <constraint firstItem="pDN-gJ-V16" firstAttribute="trailing" secondItem="ykf-Rk-Trk" secondAttribute="trailing" constant="30" id="n4s-CZ-CaR"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="coinImageView" destination="DSK-wK-1tp" id="zl4-ml-k0k"/>
+                        <outlet property="scoreLabel" destination="ykf-Rk-Trk" id="8jc-YC-MZH"/>
                         <outlet property="timerLabel" destination="dl8-Il-DNc" id="sQk-C3-8or"/>
                     </connections>
                 </viewController>
@@ -121,5 +140,6 @@
     </scenes>
     <resources>
         <image name="back" width="360" height="360"/>
+        <image name="coin" width="512" height="512"/>
     </resources>
 </document>

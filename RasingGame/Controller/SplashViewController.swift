@@ -24,7 +24,7 @@ final class SplashViewController: UIViewController {
         setupGif()
         setupLogoLabel()
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(4)) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5)) {
             self.navigateToMainScreen()
         }
     }
@@ -35,13 +35,13 @@ final class SplashViewController: UIViewController {
         gifImageView.frame = CGRect(x: -carWidth, y: self.view.frame.height / 2 - 60, width: carWidth, height: carHeight)
         view.addSubview(gifImageView)
         
-        UIView.animate(withDuration: 4, delay: 0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 5, delay: 0, options: .curveLinear, animations: {
             gifImageView.frame.origin.x += self.view.frame.width + self.carWidth
         })
     }
     
     private func setupLogoLabel() {
-        UIView.animate(withDuration: 2, delay: 0, animations: {
+        UIView.animate(withDuration: 3, delay: 0, animations: {
             self.lblRasing.alpha = 1
             self.lblRasing.makeShadow(shadowOpacity: 0.8, shadowOffset: CGSize(width: 5, height: 5), shadowRadius: 2)
         })
@@ -53,15 +53,7 @@ final class SplashViewController: UIViewController {
         guard let menuViewController = storyboard.instantiateViewController(identifier: "MenuViewController") as? MenuViewController
         else { return }
         
-        view.window?.rootViewController = menuViewController
-        view.window?.makeKeyAndVisible()
-        
-        //        let menuViewController = UIViewController(nibName: "CheckViewController", bundle: nil)
-        //        self.navigationController?.pushViewController(menuViewController, animated: true)
-        //
-        //
-        //        view.window?.rootViewController = menuViewController
-        //        view.window?.makeKeyAndVisible()
+        self.navigationController?.pushViewController(menuViewController, animated: false)
     }
 }
 

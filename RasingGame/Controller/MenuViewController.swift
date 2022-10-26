@@ -15,6 +15,7 @@ final class MenuViewController: UIViewController {
         super.viewWillLayoutSubviews()
         if isFirstLoad {
             initView()
+            isFirstLoad = false
         }
     }
     
@@ -58,6 +59,7 @@ final class MenuViewController: UIViewController {
         let labelScore = UILabel()
         labelScore.frame = CGRect(x: 0, y: 0, width: width - padding, height: height)
         labelScore.textAlignment = .right
+        labelScore.isUserInteractionEnabled = true
         setupFont(label: labelScore, text: "Score list")
         
         view.addSubview(scoreView)
@@ -65,6 +67,12 @@ final class MenuViewController: UIViewController {
 
         UIView.animate(withDuration: 1, delay: 1, animations: {
             scoreView.frame.origin.x -= self.width
+        }, completion: { (isFinished: Bool) in
+            let gesture = UITapGestureRecognizer(
+                target: self,
+                action: #selector(self.navigateToScoreList)
+            )
+            labelScore.addGestureRecognizer(gesture)
         })
     }
     
@@ -104,7 +112,12 @@ final class MenuViewController: UIViewController {
         guard let gameViewController = storyboard.instantiateViewController(identifier: "GameViewController") as? GameViewController
         else { return }
         
-        view.window?.rootViewController = gameViewController
-        view.window?.makeKeyAndVisible()
+        self.navigationController?.pushViewController(gameViewController, animated: false)
+    }
+    
+    @objc private func navigateToScoreList() {
+        let scoreViewController = ScoreViewController(nibName: "ScoreViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(scoreViewController, animated: false)
     }
 }
