@@ -29,8 +29,7 @@ final class GameViewController: UIViewController {
     // MARK: - @IBOutlets
     @IBOutlet private weak var timerLabel: UILabel!
     @IBOutlet private weak var scoreLabel: UILabel!
-    @IBOutlet weak var coinImageView: UIImageView!
-    
+    @IBOutlet private weak var coinImageView: UIImageView!
     // MARK: - Override methods
     override func viewWillLayoutSubviews() {
         if isFirstLoad {
@@ -183,18 +182,19 @@ final class GameViewController: UIViewController {
             coinView.frame = CGRect(x: xPosition, y: yPosition, width: coinSize, height: coinSize)
             coinView.layer.removeAllAnimations()
             UIView.animate(withDuration: 2, animations: {
-                coinView.frame.origin.x = self.coinImageView.frame.origin.x - 7
-                coinView.frame.origin.y = self.coinImageView.frame.origin.y - 7
                 coinView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                
+                coinView.frame.origin.x = self.coinImageView.frame.origin.x
+                coinView.frame.origin.y = self.coinImageView.frame.origin.y
             }, completion: { finished in
                 coinView.removeFromSuperview()
                 self.createCoin(xCoordinate: xPosition, delay: 12)
             })
             score += 1
-            scoreLabel.text = String(score)
+            scoreLabel.text = score.makeScore()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
             self.intersectsCoin(coinView)
         }
     }
@@ -207,8 +207,8 @@ final class GameViewController: UIViewController {
             checkIntersect(carView, secondBarrier) {
             
             removeAnimation()
-            score = 0
-            scoreLabel.text = String(score)
+            
+            ScoreService.shared.saveScore(score: score)
             
             showAlert(
                 title: "Game is over",
@@ -216,6 +216,7 @@ final class GameViewController: UIViewController {
                 actions: [
                     UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
                         self.initView()
+                        scoreLabel.text = 0.makeScore()
                     }), UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in
                         self.navigateBack()
                     })

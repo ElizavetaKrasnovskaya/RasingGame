@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84028A9A290EA39600F04894 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84028A99290EA39600F04894 /* StorageService.swift */; };
+		84028A9D290EA3B100F04894 /* ScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84028A9C290EA3B100F04894 /* ScoreService.swift */; };
+		84028A9F290EA3D000F04894 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84028A9E290EA3D000F04894 /* Constants.swift */; };
 		841D7C0C2909C5B4003BF4A6 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D7C0A2909C5B4003BF4A6 /* ScoreViewController.swift */; };
 		841D7C0D2909C5B4003BF4A6 /* ScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841D7C0B2909C5B4003BF4A6 /* ScoreViewController.xib */; };
 		841D7C0F2909DC42003BF4A6 /* Int+Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D7C0E2909DC42003BF4A6 /* Int+Scores.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84028A99290EA39600F04894 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		84028A9C290EA3B100F04894 /* ScoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreService.swift; sourceTree = "<group>"; };
+		84028A9E290EA3D000F04894 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		841D7C0A2909C5B4003BF4A6 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		841D7C0B2909C5B4003BF4A6 /* ScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ScoreViewController.xib; path = ../Controller/ScoreViewController.xib; sourceTree = "<group>"; };
 		841D7C0E2909DC42003BF4A6 /* Int+Scores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Scores.swift"; sourceTree = "<group>"; };
@@ -67,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84028A98290EA38200F04894 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				84028A99290EA39600F04894 /* StorageService.swift */,
+				84028A9C290EA3B100F04894 /* ScoreService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		843E264C29045FD2000009DB = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +101,7 @@
 		843E265729045FD2000009DB /* RasingGame */ = {
 			isa = PBXGroup;
 			children = (
+				84028A98290EA38200F04894 /* Service */,
 				843E266629045FD3000009DB /* Info.plist */,
 				843E2679290546A3000009DB /* App */,
 				843E267629046EBC000009DB /* Model */,
@@ -106,6 +122,7 @@
 				8494F6F629059C5A0086E3AD /* BlurView.swift */,
 				8447548F29088DBE00888E33 /* UIViewController+Alert.swift */,
 				841D7C0E2909DC42003BF4A6 /* Int+Scores.swift */,
+				84028A9E290EA3D000F04894 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -239,6 +256,8 @@
 				8494F6E52905594F0086E3AD /* MenuItemView.swift in Sources */,
 				841D7C0F2909DC42003BF4A6 /* Int+Scores.swift in Sources */,
 				8447549029088DBE00888E33 /* UIViewController+Alert.swift in Sources */,
+				84028A9A290EA39600F04894 /* StorageService.swift in Sources */,
+				84028A9D290EA3B100F04894 /* ScoreService.swift in Sources */,
 				8494F6E3290553E90086E3AD /* CustomViews.swift in Sources */,
 				8494F6ED290573DD0086E3AD /* MenuViewController.swift in Sources */,
 				8494F6E72905649B0086E3AD /* BackgroundDirection.swift in Sources */,
@@ -249,6 +268,7 @@
 				8494F6F32905989B0086E3AD /* GameViewController.swift in Sources */,
 				8494F6F5290599000086E3AD /* Location.swift in Sources */,
 				843E265B29045FD2000009DB /* SceneDelegate.swift in Sources */,
+				84028A9F290EA3D000F04894 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

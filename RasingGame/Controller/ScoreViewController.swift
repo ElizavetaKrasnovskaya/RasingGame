@@ -1,19 +1,12 @@
-//
-//  ScoreViewController.swift
-//  RasingGame
-//
-//  Created by admin on 26/10/2022.
-//
-
 import UIKit
 
-class ScoreViewController: UIViewController {
+final class ScoreViewController: UIViewController {
 
     private var isFirstLoad = true
     
-    private lazy var firstScore = 100500
-    private lazy var secondScore = 1337
-    private lazy var thirdScore = 228
+    private var firstScore: Int = 0
+    private var secondScore: Int = 0
+    private var thirdScore: Int = 0
     
     @IBOutlet weak var firstScoreLabel: UILabel!
     @IBOutlet weak var secondScoreLabel: UILabel!
@@ -32,10 +25,14 @@ class ScoreViewController: UIViewController {
     }
     
     private func updateScores() {
+        let scores = ScoreService.shared.getScores()
+        
+        firstScore = scores[0]
+        secondScore = scores[1]
+        thirdScore = scores[2]
+
         firstScoreLabel.text = firstScore.makeScore()
         secondScoreLabel.text = secondScore.makeScore()
         thirdScoreLabel.text = thirdScore.makeScore()
     }
-    
-    
 }

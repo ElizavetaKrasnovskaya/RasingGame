@@ -3,10 +3,13 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if StorageService.shared.isFirstLaunch {
+            StorageService.shared.scores = [0, 0, 0]
+            StorageService.shared.isFirstLaunch = false
+        }
+        
         return true
     }
 

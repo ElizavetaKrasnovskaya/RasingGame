@@ -13,14 +13,11 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScoreViewController" customModule="RasingGame" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScoreViewController">
             <connections>
-                <outlet property="firstScore" destination="oyg-sc-ivo" id="klx-wq-Umo"/>
-                <outlet property="firstScoreLabel" destination="ym6-zj-f6r" id="Knf-ug-HK7"/>
-                <outlet property="secondScore" destination="ym6-zj-f6r" id="qrh-PH-Xvc"/>
-                <outlet property="secondScoreLabel" destination="ym6-zj-f6r" id="8Hc-yZ-fT3"/>
-                <outlet property="thirdScore" destination="q2O-pi-Bgj" id="Z7J-I0-ohZ"/>
-                <outlet property="thirdScoreLabel" destination="q2O-pi-Bgj" id="9Iq-mG-OLR"/>
+                <outlet property="firstScoreLabel" destination="oyg-sc-ivo" id="66S-vW-j0J"/>
+                <outlet property="secondScoreLabel" destination="ym6-zj-f6r" id="SrZ-Qa-1Gz"/>
+                <outlet property="thirdScoreLabel" destination="q2O-pi-Bgj" id="4PV-CT-Q0P"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lh4-7f-mlo">
-                    <rect key="frame" x="0.0" y="0.0" width="390" height="843.99999999999989"/>
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O5T-3n-hvj">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="1376.6666666666667"/>

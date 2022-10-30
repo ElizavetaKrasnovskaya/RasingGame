@@ -21,6 +21,7 @@ final class MenuViewController: UIViewController {
     
     // MARK: - Private methods
     private func initView() {
+        self.navigationItem.setHidesBackButton(true, animated: false)
         background.blur()
         setupNewGameView()
         setupScoreView()
