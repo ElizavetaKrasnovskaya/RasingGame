@@ -216,7 +216,7 @@ final class GameViewController: UIViewController {
                 actions: [
                     UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
                         self.initView()
-                        scoreLabel.text = 0.makeScore()
+                        self.scoreLabel.text = 0.makeScore()
                     }), UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in
                         self.navigateBack()
                     })
