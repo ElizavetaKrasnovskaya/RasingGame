@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OwL-AX-U5u">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="drift.ttf">
+            <string>DriftWood</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="SplashViewController" customModule="RasingGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rasing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta6-bt-Bln" customClass="LogoLabelView" customModule="RasingGame" customModuleProvider="target">
+                                <rect key="frame" x="102.33333333333333" y="290" width="185.33333333333337" height="64.333333333333314"/>
+                                <fontDescription key="fontDescription" name="DriftWood" family="Drift Wood" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ta6-bt-Bln" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qrt-B9-xf3"/>
+                            <constraint firstItem="ta6-bt-Bln" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="vmV-m2-itN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fam-kP-Dit"/>
+                    <connections>
+                        <outlet property="lblRasing" destination="ta6-bt-Bln" id="4wO-Rp-l3h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="-24"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="1s3-Gw-NPW">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="ZKJ-Tz-dkp" customClass="MenuViewController" customModule="RasingGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cmv-oO-Oao">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="IC3-7Z-ZZN" customClass="BlurImageView" customModule="RasingGame" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lff-U1-fDX"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IC3-7Z-ZZN" secondAttribute="bottom" id="J5r-tp-OTz"/>
+                            <constraint firstItem="IC3-7Z-ZZN" firstAttribute="top" secondItem="cmv-oO-Oao" secondAttribute="top" id="Kvm-Cn-W4r"/>
+                            <constraint firstItem="lff-U1-fDX" firstAttribute="trailing" secondItem="IC3-7Z-ZZN" secondAttribute="trailing" id="TNp-6B-C0l"/>
+                            <constraint firstItem="IC3-7Z-ZZN" firstAttribute="leading" secondItem="lff-U1-fDX" secondAttribute="leading" id="VIS-TJ-8Zi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xKV-Sm-dSz"/>
+                    <connections>
+                        <outlet property="background" destination="IC3-7Z-ZZN" id="o4H-dX-OGj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTg-oH-7XA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1178" y="-24"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="wrv-NG-raE">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="XM1-TP-wr3" customClass="GameViewController" customModule="RasingGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zi1-qY-ody">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl8-Il-DNc">
+                                <rect key="frame" x="181" y="236.33333333333334" width="28" height="71.333333333333343"/>
+                                <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykf-Rk-Trk">
+                                <rect key="frame" x="339" y="67" width="21" height="39.333333333333343"/>
+                                <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin" translatesAutoresizingMaskIntoConstraints="NO" id="DSK-wK-1tp">
+                                <rect key="frame" x="304" y="67" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="KhI-La-U3c"/>
+                                    <constraint firstAttribute="width" constant="25" id="SpT-J1-iXa"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pDN-gJ-V16"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DSK-wK-1tp" firstAttribute="top" secondItem="pDN-gJ-V16" secondAttribute="top" constant="20" id="0ti-P9-36F"/>
+                            <constraint firstItem="dl8-Il-DNc" firstAttribute="centerY" secondItem="Zi1-qY-ody" secondAttribute="centerY" constant="-150" id="DUH-qA-gin"/>
+                            <constraint firstItem="ykf-Rk-Trk" firstAttribute="top" secondItem="pDN-gJ-V16" secondAttribute="top" constant="20" id="Mym-cy-Qff"/>
+                            <constraint firstItem="ykf-Rk-Trk" firstAttribute="leading" secondItem="DSK-wK-1tp" secondAttribute="trailing" constant="10" id="OU6-9W-DYv"/>
+                            <constraint firstItem="dl8-Il-DNc" firstAttribute="centerX" secondItem="Zi1-qY-ody" secondAttribute="centerX" id="PPT-yr-kV0"/>
+                            <constraint firstItem="pDN-gJ-V16" firstAttribute="trailing" secondItem="ykf-Rk-Trk" secondAttribute="trailing" constant="30" id="n4s-CZ-CaR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="coinImageView" destination="DSK-wK-1tp" id="zl4-ml-k0k"/>
+                        <outlet property="scoreLabel" destination="ykf-Rk-Trk" id="8jc-YC-MZH"/>
+                        <outlet property="timerLabel" destination="dl8-Il-DNc" id="sQk-C3-8or"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHe-KR-v1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2166" y="-24"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1TL-Qo-7Hv">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="OwL-AX-U5u" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="31H-ph-lqe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9rI-HN-W5I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nVg-s0-2L8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-752" y="-24"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back" width="360" height="360"/>
+        <image name="coin" width="512" height="512"/>
+    </resources>
+</document>
