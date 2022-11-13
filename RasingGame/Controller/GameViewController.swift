@@ -191,7 +191,7 @@ final class GameViewController: UIViewController {
                 self.createCoin(xCoordinate: xPosition, delay: 12)
             })
             score += 1
-            scoreLabel.text = score.makeScore()
+            scoreLabel.text = "\(score)"
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
@@ -208,7 +208,7 @@ final class GameViewController: UIViewController {
             
             removeAnimation()
             
-            ScoreService.shared.saveScore(score: score)
+            ScoreService.shared.saveScore(score: Score(amount: score, date: getCurrentDate()))
             
             showAlert(
                 title: "Game is over",
@@ -216,7 +216,8 @@ final class GameViewController: UIViewController {
                 actions: [
                     UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
                         self.initView()
-                        self.scoreLabel.text = 0.makeScore()
+                        self.score = 0
+                        self.scoreLabel.text = "0"
                     }), UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in
                         self.navigateBack()
                     })
@@ -286,6 +287,13 @@ final class GameViewController: UIViewController {
     
     private func navigateBack() {
         navigationController?.popViewController(animated: false)
+    }
+    
+    private func getCurrentDate() -> String {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm, d MMM y"
+        return formatter.string(from: currentDate)
     }
     
     @objc private func updateTimerLabel() {

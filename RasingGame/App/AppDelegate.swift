@@ -6,7 +6,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         if StorageService.shared.isFirstLaunch {
-            StorageService.shared.scores = [0, 0, 0]
             StorageService.shared.isFirstLaunch = false
         }
         

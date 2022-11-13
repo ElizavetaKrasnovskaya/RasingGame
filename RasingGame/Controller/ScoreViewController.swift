@@ -5,15 +5,15 @@ final class ScoreViewController: UIViewController {
     
     private var isFirstLoad = true
     
-    private var firstScore: Int = 0
-    private var secondScore: Int = 0
-    private var thirdScore: Int = 0
+    private var scores = [Score]()
     
-    private var scores = [Int]()
+    @IBOutlet weak var firstScoreLabel: UILabel!
+    @IBOutlet weak var secondScoreLabel: UILabel!
+    @IBOutlet weak var thirdScoreLabel: UILabel!
     
-    @IBOutlet private weak var firstScoreLabel: UILabel!
-    @IBOutlet private weak var secondScoreLabel: UILabel!
-    @IBOutlet private weak var thirdScoreLabel: UILabel!
+    @IBOutlet weak var firstDateLabel: UILabel!
+    @IBOutlet weak var secondDateLabel: UILabel!
+    @IBOutlet weak var thirdDateLabel: UILabel!
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -30,12 +30,18 @@ final class ScoreViewController: UIViewController {
     private func updateScores() {
         scores = ScoreService.shared.getScores()
         
-        firstScore = scores[0]
-        secondScore = scores[1]
-        thirdScore = scores[2]
-        
-        firstScoreLabel.text = firstScore.makeScore()
-        secondScoreLabel.text = secondScore.makeScore()
-        thirdScoreLabel.text = thirdScore.makeScore()
+        if (scores.count >= 1) {
+            firstScoreLabel.text = scores[0].makeScore()
+            firstDateLabel.text = scores[0].makeDate()
+        }
+        if (scores.count >= 2) {
+            secondScoreLabel.text = scores[1].makeScore()
+            secondDateLabel.text = scores[1].makeDate()
+        }
+        if (scores.count >= 3) {
+            thirdScoreLabel.text = scores[2].makeScore()
+            thirdDateLabel.text = scores[2].makeDate()
+        }
+
     }
 }
