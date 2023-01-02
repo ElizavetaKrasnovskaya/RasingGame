@@ -25,7 +25,7 @@ final class MenuViewController: UIViewController {
         background.blur()
         setupNewGameView()
         setupScoreView()
-        setupCarShopView()
+        setupSettingsView()
     }
     
     private func setupNewGameView() {
@@ -71,26 +71,33 @@ final class MenuViewController: UIViewController {
         }, completion: { (isFinished: Bool) in
             let gesture = UITapGestureRecognizer(
                 target: self,
-                action: #selector(self.navigateToScoreList)
+                action: #selector(self.navigateToSettings)
             )
             labelScore.addGestureRecognizer(gesture)
         })
     }
     
-    private func setupCarShopView() {
-        let carShopView = MenuItemView()
-        carShopView.frame = CGRect(x: -width, y: view.frame.height / 2 + 2 * height - height, width: width, height: height)
+    private func setupSettingsView() {
+        let settingsView = MenuItemView()
+        settingsView.frame = CGRect(x: -width, y: view.frame.height / 2 + 2 * height - height, width: width, height: height)
         
-        let labelCarShop = UILabel()
-        labelCarShop.frame = CGRect(x: padding, y: 0, width: width, height: height)
-        labelCarShop.textAlignment = .left
-        setupFont(label: labelCarShop, text: "Car shop")
+        let labelSettings = UILabel()
+        labelSettings.frame = CGRect(x: padding, y: 0, width: width, height: height)
+        labelSettings.textAlignment = .left
+        labelSettings.isUserInteractionEnabled = true
+        setupFont(label: labelSettings, text: "Settings")
         
-        view.addSubview(carShopView)
-        carShopView.addSubview(labelCarShop)
+        view.addSubview(settingsView)
+        settingsView.addSubview(labelSettings)
 
         UIView.animate(withDuration: 1, delay: 2, animations: {
-            carShopView.frame.origin.x += self.width
+            settingsView.frame.origin.x += self.width
+        }, completion: { (isFinished: Bool) in
+            let gesture = UITapGestureRecognizer(
+                target: self,
+                action: #selector(self.navigateToSettings)
+            )
+            labelSettings.addGestureRecognizer(gesture)
         })
     }
     
@@ -117,8 +124,20 @@ final class MenuViewController: UIViewController {
     }
     
     @objc private func navigateToScoreList() {
-        let scoreViewController = ScoreViewController(nibName: "ScoreViewController", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        self.navigationController?.pushViewController(scoreViewController, animated: false)
+        guard let scoresViewController = storyboard.instantiateViewController(identifier: "ScoreViewController") as? ScoreViewController
+        else { return }
+        
+        self.navigationController?.pushViewController(scoresViewController, animated: false)
+    }
+    
+    @objc private func navigateToSettings() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let scoresViewController = storyboard.instantiateViewController(identifier: "SettingViewController") as? SettingViewController
+        else { return }
+        
+        self.navigationController?.pushViewController(scoresViewController, animated: false)
     }
 }
