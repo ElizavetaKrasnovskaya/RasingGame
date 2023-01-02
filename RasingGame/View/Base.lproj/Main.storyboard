@@ -52,6 +52,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjH-8t-UPG">
+                                <rect key="frame" x="19.999999999999993" y="77" width="95.333333333333314" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IKm-fR-lkn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DriftWood" family="Drift Wood" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZE-he-h4x">
                                 <rect key="frame" x="18" y="690" width="354" height="170"/>
                                 <subviews>
@@ -85,20 +94,32 @@
                                     <constraint firstItem="IBd-3O-fOD" firstAttribute="centerX" secondItem="HZE-he-h4x" secondAttribute="centerX" id="uhR-JO-FHJ"/>
                                 </constraints>
                             </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2z-lU-Zt0" userLabel="I">
+                                <rect key="frame" x="321" y="87" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onMusicClick:" destination="kG0-Le-4iV" eventType="valueChanged" id="F5f-wE-V5r"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nRV-Ry-7OU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="O2z-lU-Zt0" firstAttribute="top" secondItem="nRV-Ry-7OU" secondAttribute="top" constant="40" id="6H8-5E-Ac1"/>
                             <constraint firstItem="nRV-Ry-7OU" firstAttribute="bottom" secondItem="HZE-he-h4x" secondAttribute="bottom" constant="-50" id="8Ue-il-4i7"/>
+                            <constraint firstItem="VjH-8t-UPG" firstAttribute="leading" secondItem="nRV-Ry-7OU" secondAttribute="leading" constant="20" id="AO8-r4-KH9"/>
                             <constraint firstItem="HZE-he-h4x" firstAttribute="leading" secondItem="nRV-Ry-7OU" secondAttribute="leading" constant="18" id="Feg-vT-CZB"/>
+                            <constraint firstItem="VjH-8t-UPG" firstAttribute="top" secondItem="nRV-Ry-7OU" secondAttribute="top" constant="30" id="Kal-Zy-NhA"/>
+                            <constraint firstItem="nRV-Ry-7OU" firstAttribute="trailing" secondItem="O2z-lU-Zt0" secondAttribute="trailing" constant="20" id="Teo-ca-Oun"/>
                             <constraint firstItem="nRV-Ry-7OU" firstAttribute="trailing" secondItem="HZE-he-h4x" secondAttribute="trailing" constant="18" id="mTm-n9-jrw"/>
+                            <constraint firstItem="O2z-lU-Zt0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VjH-8t-UPG" secondAttribute="trailing" constant="8" symbolic="YES" id="r5A-zh-cCf"/>
                             <constraint firstItem="HZE-he-h4x" firstAttribute="centerX" secondItem="nRV-Ry-7OU" secondAttribute="centerX" id="s7c-hn-4Df"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A2k-J8-u6h"/>
                     <connections>
                         <outlet property="corneredView" destination="HZE-he-h4x" id="p4X-fn-C7m"/>
+                        <outlet property="musicSwitch" destination="O2z-lU-Zt0" id="pu1-Kq-hje"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUa-NV-UhD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

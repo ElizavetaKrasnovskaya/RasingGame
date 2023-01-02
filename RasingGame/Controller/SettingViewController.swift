@@ -4,6 +4,7 @@ import MessageUI
 class SettingViewController: UIViewController {
     
     @IBOutlet private weak var corneredView: UIView!
+    @IBOutlet weak var musicSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,6 +13,7 @@ class SettingViewController: UIViewController {
     
     private func initView() {
         corneredView.layer.cornerRadius = 25
+        musicSwitch.isOn = StorageService.shared.isMusicOn
     }
     
     @IBAction func onEmailClick(_ sender: UIButton) {
@@ -35,5 +37,10 @@ class SettingViewController: UIViewController {
                 UIApplication.shared.openURL(webUrl)
             }
         }
+    }
+    
+    @IBAction func onMusicClick(_ sender: UISwitch) {
+        musicSwitch.isOn = (sender as UISwitch).isOn
+        StorageService.shared.isMusicOn = musicSwitch.isOn
     }
 }

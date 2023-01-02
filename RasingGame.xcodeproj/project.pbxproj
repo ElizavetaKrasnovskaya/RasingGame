@@ -35,6 +35,7 @@
 		84CF79742920F8CD00D60A9E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF79732920F8CD00D60A9E /* Score.swift */; };
 		84DC264E2932662100A66BF2 /* ScoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC264C2932662100A66BF2 /* ScoreDetailsViewController.swift */; };
 		84E29F782963060600EE67B6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E29F772963060600EE67B6 /* SettingViewController.swift */; };
+		84E29F8B2963328B00EE67B6 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84E29F8A2963328B00EE67B6 /* music.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		84CF79732920F8CD00D60A9E /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		84DC264C2932662100A66BF2 /* ScoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDetailsViewController.swift; sourceTree = "<group>"; };
 		84E29F772963060600EE67B6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		84E29F8A2963328B00EE67B6 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		843E267A290546BC000009DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84E29F8A2963328B00EE67B6 /* music.mp3 */,
 				843E266129045FD3000009DB /* Assets.xcassets */,
 				843E266C2904639A000009DB /* carGif.gif */,
 				843E266329045FD3000009DB /* LaunchScreen.storyboard */,
@@ -252,6 +255,7 @@
 				843E267829047968000009DB /* drift.ttf in Resources */,
 				843E266229045FD3000009DB /* Assets.xcassets in Resources */,
 				843E266D2904639A000009DB /* carGif.gif in Resources */,
+				84E29F8B2963328B00EE67B6 /* music.mp3 in Resources */,
 				843E266029045FD2000009DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,4 +34,13 @@ final class StorageService {
             storage.set(!newValue, forKey: Constants.firstLaunchKey)
         }
     }
+    
+    var isMusicOn: Bool {
+        get {
+            storage.bool(forKey: Constants.musicKey)
+        }
+        set {
+            storage.set(newValue, forKey: Constants.musicKey)
+        }
+    }
 }
