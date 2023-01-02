@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 final class GameViewController: UIViewController {
     
@@ -26,6 +27,8 @@ final class GameViewController: UIViewController {
         }
     }
     
+    private var player: AVAudioPlayer?
+    
     // MARK: - @IBOutlets
     @IBOutlet private weak var timerLabel: UILabel!
     @IBOutlet private weak var scoreLabel: UILabel!
@@ -38,6 +41,11 @@ final class GameViewController: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        turnOfMusic()
+    }
+    
     // MARK: - Private methods
     private func initView() {
         setupTimer()
@@ -45,6 +53,7 @@ final class GameViewController: UIViewController {
         setupTrack()
         view.addSubview(carView)
         layoutCar(at: .center)
+        setupMusic()
     }
     
     private func setupTimer() {
@@ -173,6 +182,38 @@ final class GameViewController: UIViewController {
         
         coins.append(imageView)
         intersectsCoin(imageView)
+    }
+    
+    private func setupMusic() {
+        if StorageService.shared.isMusicOn && player == nil {
+            turnOnMusic()
+        }
+    }
+    
+    private func turnOnMusic() {
+        let urlString = Bundle.main.path(forResource: "music", ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            
+            guard let urlString = urlString
+            else { return }
+            
+            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            
+            guard let player = player
+            else { return }
+            
+            player.play()
+        } catch {
+            print("Something went wrong")
+        }
+    }
+    
+    private func turnOfMusic() {
+        if let player = player, player.isPlaying {
+            player.stop()
+        }
     }
     
     private func intersectsCoin(_ coinView: UIImageView) {

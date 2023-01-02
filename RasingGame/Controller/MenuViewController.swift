@@ -71,7 +71,7 @@ final class MenuViewController: UIViewController {
         }, completion: { (isFinished: Bool) in
             let gesture = UITapGestureRecognizer(
                 target: self,
-                action: #selector(self.navigateToSettings)
+                action: #selector(self.navigateToScoreList)
             )
             labelScore.addGestureRecognizer(gesture)
         })

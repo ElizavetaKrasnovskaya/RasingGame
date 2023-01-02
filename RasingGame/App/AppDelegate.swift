@@ -7,6 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if StorageService.shared.isFirstLaunch {
             StorageService.shared.isFirstLaunch = false
+            StorageService.shared.isMusicOn = true
         }
         
         return true
