@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="drift.ttf">
+            <string>DriftWood</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="KGk-i7-Jjw" customClass="ScoreCell" customModule="RasingGame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUT-QS-kGF">
+                        <rect key="frame" x="16" y="17" width="12" height="28.333333333333329"/>
+                        <fontDescription key="fontDescription" name="DriftWood" family="Drift Wood" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyV-bW-ybh">
+                        <rect key="frame" x="236" y="18.333333333333329" width="68" height="25.666666666666671"/>
+                        <fontDescription key="fontDescription" name="DriftWood" family="Drift Wood" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LUT-QS-kGF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0EE-XH-aUn"/>
+                    <constraint firstItem="LUT-QS-kGF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Nak-ZE-APx"/>
+                    <constraint firstItem="cyV-bW-ybh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Zax-i5-2Oi"/>
+                    <constraint firstAttribute="trailing" secondItem="cyV-bW-ybh" secondAttribute="trailing" constant="16" id="n6m-at-0fi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="placeLbl" destination="LUT-QS-kGF" id="IyC-uF-bkj"/>
+                <outlet property="scoreLbl" destination="cyV-bW-ybh" id="t23-7S-OTm"/>
+            </connections>
+            <point key="canvasLocation" x="91.603053435114504" y="26.056338028169016"/>
+        </tableViewCell>
+    </objects>
+</document>

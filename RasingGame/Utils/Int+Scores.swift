@@ -1,5 +1,8 @@
-extension Int {
+extension Score {
     func makeScore() -> String {
-        "Score: \(self)"
+        "SCORE: \(self.amount)"
+    }
+    func makeDate() -> String {
+        "DATE: \(self.date)"
     }
 }
