@@ -36,7 +36,8 @@ final class MenuViewController: UIViewController {
         labelStart.frame = CGRect(x: padding, y: 0, width: width, height: height)
         labelStart.textAlignment = .left
         labelStart.isUserInteractionEnabled = true
-        setupFont(label: labelStart, text: "Start game")
+        let startGameText = NSLocalizedString("start_game", comment: "")
+        setupFont(label: labelStart, text: startGameText)
         
         view.addSubview(startNewGame)
         startNewGame.addSubview(labelStart)
@@ -61,7 +62,8 @@ final class MenuViewController: UIViewController {
         labelScore.frame = CGRect(x: 0, y: 0, width: width - padding, height: height)
         labelScore.textAlignment = .right
         labelScore.isUserInteractionEnabled = true
-        setupFont(label: labelScore, text: "Score list")
+        let scoreText = NSLocalizedString("score_list", comment: "")
+        setupFont(label: labelScore, text: scoreText)
         
         view.addSubview(scoreView)
         scoreView.addSubview(labelScore)
@@ -71,7 +73,7 @@ final class MenuViewController: UIViewController {
         }, completion: { (isFinished: Bool) in
             let gesture = UITapGestureRecognizer(
                 target: self,
-                action: #selector(self.navigateToSettings)
+                action: #selector(self.navigateToScoreList)
             )
             labelScore.addGestureRecognizer(gesture)
         })
@@ -85,7 +87,8 @@ final class MenuViewController: UIViewController {
         labelSettings.frame = CGRect(x: padding, y: 0, width: width, height: height)
         labelSettings.textAlignment = .left
         labelSettings.isUserInteractionEnabled = true
-        setupFont(label: labelSettings, text: "Settings")
+        let settingsText = NSLocalizedString("settings", comment: "")
+        setupFont(label: labelSettings, text: settingsText)
         
         view.addSubview(settingsView)
         settingsView.addSubview(labelSettings)

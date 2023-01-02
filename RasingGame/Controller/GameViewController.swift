@@ -210,15 +210,18 @@ final class GameViewController: UIViewController {
             
             ScoreService.shared.saveScore(score: Score(amount: score, date: getCurrentDate()))
             
+            let titleText = NSLocalizedString("game_is_over", comment: "")
+            let messageText = NSLocalizedString("start_new_game", comment: "")
+            let cancelButtonText = NSLocalizedString("cancel", comment: "")
             showAlert(
-                title: "Game is over",
-                message: "You can start a new game",
+                title: titleText,
+                message: messageText,
                 actions: [
                     UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
                         self.initView()
                         self.score = 0
                         self.scoreLabel.text = "0"
-                    }), UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in
+                    }), UIAlertAction(title: cancelButtonText, style: UIAlertAction.Style.cancel, handler: { _ in
                         self.navigateBack()
                     })
                 ]
