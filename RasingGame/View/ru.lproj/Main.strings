@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "DATE:"; ObjectID = "BWa-50-b3M"; */
+"BWa-50-b3M.text" = "ДАТА:";
+
+/* Class = "UILabel"; text = "Need help? Get in touch"; ObjectID = "IBd-3O-fOD"; */
+"IBd-3O-fOD.text" = "Нужна помощь? Напишите нам";
+
+/* Class = "UILabel"; text = "SCORE: "; ObjectID = "cBJ-lE-8pw"; */
+"cBJ-lE-8pw.text" = "Счет: ";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "cqR-2X-rTb"; */
+"cqR-2X-rTb.text" = "1";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "dl8-Il-DNc"; */
+"dl8-Il-DNc.text" = "3";
+
+/* Class = "UILabel"; text = "Rasing"; ObjectID = "ta6-bt-Bln"; */
+"ta6-bt-Bln.text" = "Гонки";
+
+/* Class = "UIButton"; normalTitle = "e_krasnovskaya"; ObjectID = "uwd-vf-1MM"; */
+"uwd-vf-1MM.normalTitle" = "e_krasnovskaya";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "ykf-Rk-Trk"; */
+"ykf-Rk-Trk.text" = "0";

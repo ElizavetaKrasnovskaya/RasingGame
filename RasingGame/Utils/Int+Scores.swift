@@ -1,8 +1,10 @@
+import Foundation
+
 extension Score {
     func makeScore() -> String {
-        "SCORE: \(self.amount)"
+        "\(NSLocalizedString("score", comment: "")): \(self.amount)"
     }
     func makeDate() -> String {
-        "DATE: \(self.date)"
+        "\(NSLocalizedString("date", comment: "")): \(self.date)"
     }
 }
